@@ -6,8 +6,11 @@
 
 #define SQUARE(x)		((x) * (x))
 
+typedef int(*fptr)(const void*, const void*);
+
+
 void	bclib_buble_sort(int* array, int size);
-int		bclib_qsort_cb(const void* arg1, const void* arg2);
+int		bclib_qsort_int_cb(const void* arg1, const void* arg2);
 int*	bclib_binary_Search(const int* arr, size_t size, int key);
 int*	bclib_find_value(const int* arr, size_t size, int key);
 void	bclib_print_array(const int* arr, size_t size);
@@ -22,4 +25,7 @@ void*	bclib_memchr(const void* arg, int value, size_t size);
 int*	bclib_get_min(const int* array, size_t size);
 int*	bclib_get_max(const int* arr, size_t size);
 void	bclib_random(void);
+void	bclib_sort_array(void* array, size_t size, size_t sz, fptr fp);
+int	bclib_qsort_double_cb(const void* arg1, const void* arg2);
+int    bclib_qsort_float_cb(const void* arg1, const void* arg2);
 #endif

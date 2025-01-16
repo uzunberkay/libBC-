@@ -86,8 +86,33 @@ void bclib_memchr_test_func(void)
     }
 }
 
+void print_double_array(double double_array[], int size) {
+    printf("Double Array:\n");
+    for (int i = 0; i < size; i++) {
+        printf("Element %d: %.2lf\n", i, double_array[i]);
+    }
+}
+void print_float_array(float float_array[], int size) {
+    printf("Float Array:\n");
+    for (int i = 0; i < size; i++) {
+        printf("Element %d: %.2f\n", i, float_array[i]);
+    }
+}
+
 int main()
 {
+    double double_array[20];
+
+    // Diziye değer atama
+    for (int i = 0; i < 20; i++) {
+        double_array[i] = rand() * 1.1; // Örnek değerler
+    }
+    float float_array[20];
+
+    // Diziye değer atama
+    for (int i = 0; i < 20; i++) {
+        float_array[i] = rand() * 1.1f; // Örnek değerler
+    }
     bclib_random();
     int arr[SIZE] = { 0 };
     for (size_t i = 0; i < SIZE; ++i)
@@ -96,7 +121,22 @@ int main()
 
     }
     bclib_print_array(arr, SIZE);
-    int* ptr = bclib_get_max(arr, SIZE);
-    printf("Max : %d ", *ptr);
+    bclib_sort_array(arr, SIZE, sizeof(int),bclib_qsort_int_cb);
+    printf("\n Sorted : \n  ");
+    bclib_print_array(arr, SIZE);
+    printf("\n \n  ");
+    print_double_array(double_array, SIZE);
+    printf("\n Sorted : \n  ");
+    bclib_sort_array(double_array, SIZE, sizeof(double), bclib_qsort_double_cb);
+    print_double_array(double_array, SIZE);
+    print_float_array(float_array, SIZE);
+    bclib_sort_array(float_array, SIZE, sizeof(float), bclib_qsort_float_cb);
+    printf("\n Sorted : \n  ");
+    print_float_array(float_array, SIZE);
+
+    printf("\n Sorted : \n  ");
+
+
+
 }
 

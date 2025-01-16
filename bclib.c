@@ -24,14 +24,63 @@ void	bclib_buble_sort(int* array, int size)
 	}
 }
 
-int		bclib_qsort_cb(const void* arg1, const void* arg2)
+int		bclib_qsort_int_cb(const void* arg1, const void* arg2)
 {
 	return *(const int*)arg1 - *(const int*)arg2;
 	/*
 	* Kullanýmý qsort(arr,SIZE,sizeof(int),qsort_cb);
 	*/
 }
+int		bclib_qsort_double_cb(const void* arg1, const void* arg2)
+{
+	return *(const double*)arg1 > *(const double*)arg2 ? 1 : *(const double*)arg1 < *(const double*)arg2 ? -1 : 0;
+	/*
+	* Kullanýmý qsort(arr,SIZE,sizeof(int),qsort_cb);
+	*/
+}
+int    bclib_qsort_float_cb(const void* arg1, const void* arg2)
+{
+	return *(const float*)arg1 > *(const float*)arg2 ? 1 : *(const float*)arg1 < *(const float*)arg2 ? -1 : 0;
+}
 
+
+/*
+ * @brief Genel bir sýralama fonksiyonu. Belirli bir veri tipindeki diziyi sýralar.
+ *
+ * @param array Sýralanacak dizinin baþlangýç adresi.
+ * @param size Dizideki eleman sayýsý.
+ * @param sz Her bir elemanýn boyutu (byte cinsinden).
+ * @param fp Elemanlarý karþýlaþtýrmak için kullanýlan callback fonksiyonu.
+ *
+ * Callback Fonksiyonlarý:
+ *   - Eðer diziniz `int` türündeyse: `bclib_qsort_int_cb` fonksiyonunu kullanýn.
+ *   - Eðer diziniz `float` türündeyse: `bclib_qsort_float_cb` fonksiyonunu kullanýn.
+ *   - Eðer diziniz `double` türündeyse: `bclib_qsort_double_cb` fonksiyonunu kullanýn.
+ *
+ * Callback fonksiyonunun imzasý:
+ *   int comparator(const void* a, const void* b);
+ *   - Eðer a < b ise negatif bir deðer döndürmelidir.
+ *   - Eðer a == b ise 0 döndürmelidir.
+ *   - Eðer a > b ise pozitif bir deðer döndürmelidir.
+ *
+ * Kullaným Örnekleri:
+ *   1. int dizisini sýralama:
+ *      int arr[] = {5, 3, 8, 6, 2};
+ *      bclib_sort_array(arr, 5, sizeof(int), bclib_qsort_int_cb);
+ *
+ *   2. float dizisini sýralama:
+ *      float f_arr[] = {3.14, 1.59, 2.71};
+ *      bclib_sort_array(f_arr, 3, sizeof(float), bclib_qsort_float_cb);
+ *
+ *   3. double dizisini sýralama:
+ *      double d_arr[] = {3.1415, 2.7182, 1.6180};
+ *      bclib_sort_array(d_arr, 3, sizeof(double), bclib_qsort_double_cb);
+ */
+void bclib_sort_array(void* array, size_t size , size_t sz, fptr fp)
+{
+	qsort(array, size, sz, fp);
+
+}
 int*	bclib_binary_Search(const int* arr, size_t size, int key)
 {
 	int* first = arr;
