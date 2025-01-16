@@ -4,6 +4,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include<string.h>
+#include<stdio.h>
 
 void bclib_random(void) { srand(time(NULL)); }
 
@@ -226,4 +227,9 @@ int* bclib_get_max(const int* arr, size_t size)
 	}
 
 	return max;
+}
+
+void a(void)
+{
+	printf("\n");
 }
