@@ -43,6 +43,13 @@ int    bclib_qsort_float_cb(const void* arg1, const void* arg2)
 	return *(const float*)arg1 > *(const float*)arg2 ? 1 : *(const float*)arg1 < *(const float*)arg2 ? -1 : 0;
 }
 
+int	  bclib_qsort_string_cb(const void* arg1, const void* arg2)
+{
+	const char* str1 = (const char**)arg1;
+	const char* str2 = (const char**)arg2;
+	return strcmp(str1, str2);
+}
+
 
 /*
  * @brief Genel bir sýralama fonksiyonu. Belirli bir veri tipindeki diziyi sýralar.
