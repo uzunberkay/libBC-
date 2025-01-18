@@ -136,6 +136,13 @@ int main()
 
     printf("\n Sorted : \n  ");
 
+    char str[SIZE] = "Berkay";
+    puts(str);
+    bclib_strcat(str, " uzun");
+    puts(str);
+    printf("Size : %d ", bclib_strlen(str));
+
+
 
 
 }
