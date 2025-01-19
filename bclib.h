@@ -8,7 +8,8 @@
 #define SQUARE(x)       ((x) * (x))            // Bir sayýnýn karesini hesaplar
 #define IS_ODD(x)       (((x) & 1) ? 1 : 0)    // Sayýnýn tek olup olmadýðýný kontrol eder
 #define IS_EVEN(x)      (!IS_ODD((x)))         // Sayýnýn çift olup olmadýðýný kontrol eder
-
+#define POWER_OF_TWO(x) ((x) && !((x) & ((x) -1)) )
+#define asize(x)	(sizeof(x) / sizeof(x[0]))
 // ----- Tür Tanýmlarý -----
 typedef int (*fptr)(const void*, const void*); // Genel karþýlaþtýrma fonksiyonu iþaretçisi
 

@@ -142,8 +142,9 @@ int main()
     puts(str);
     printf("Size : %d ", bclib_strlen(str));
 
-
+    //printf("%d" NULL - NULL -1 );
 
 
 }
+
 

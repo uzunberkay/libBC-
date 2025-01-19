@@ -1,8 +1,18 @@
-﻿  bclib.c
-C_Tekrar.obj : error LNK2019: çözümlenmemiş dış sembol bclib_sort_array için main işlevinde başvuruldu
-C_Tekrar.obj : error LNK2019: çözümlenmemiş dış sembol bclib_reverse için genericReverseTestFunc işlevinde başvuruldu
-C_Tekrar.obj : error LNK2019: çözümlenmemiş dış sembol bclib_qsort_int_cb için main işlevinde başvuruldu
-C_Tekrar.obj : error LNK2019: çözümlenmemiş dış sembol bclib_qsort_double_cb için main işlevinde başvuruldu
-C_Tekrar.obj : error LNK2019: çözümlenmemiş dış sembol bclib_qsort_float_cb için main işlevinde başvuruldu
-C_Tekrar.obj : error LNK2019: çözümlenmemiş dış sembol bclib_buble_sort için bclib_memchr_test_func işlevinde başvuruldu
-C:\Users\W10\source\repos\C_Tekrar\x64\Debug\C_Tekrar.exe : fatal error LNK1120: 6 çözümlenmemiş dışlar
+﻿  C_Tekrar.c
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(40,19): warning C4267: '=': 'size_t' - 'int' dönüşümü; veri kaybı olabilir
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(70,25): warning C4267: '=': 'size_t' - 'int' dönüşümü; veri kaybı olabilir
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(74,5): warning C4013: 'bclib_buble_sort' tanımsız; int döndüren extern olduğu varsayılıyor
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(85,16): warning C4477: 'printf' : '%d' biçim dizesi 'int' türü bir bağımsız değişken gerektirir, ancak 2 değişen sayıda bağımsız değişkenin türü '__int64'
+      C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(85,16):
+      biçim dizesinde '%lld' kullanmayı düşünün
+      C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(85,16):
+      biçim dizesinde '%Id' kullanmayı düşünün
+      C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(85,16):
+      biçim dizesinde '%I64d' kullanmayı düşünün
+  
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(108,27): warning C4013: 'rand' tanımsız; int döndüren extern olduğu varsayılıyor
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(143,12): warning C4477: 'printf' : '%d' biçim dizesi 'int' türü bir bağımsız değişken gerektirir, ancak 1 değişen sayıda bağımsız değişkenin türü 'size_t'
+      C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(143,12):
+      biçim dizesinde '%zd' kullanmayı düşünün
+  
+  C_Tekrar.vcxproj -> C:\Users\W10\source\repos\C_Tekrar\x64\Debug\C_Tekrar.exe
