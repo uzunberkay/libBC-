@@ -43,5 +43,6 @@ void    bclib_random(void);                                             // Rastg
 int     bclib_qsort_int_cb(const void* arg1, const void* arg2);         // `qsort` için integer karþýlaþtýrma callback'i
 int     bclib_qsort_double_cb(const void* arg1, const void* arg2);      // `qsort` için double karþýlaþtýrma callback'i
 int     bclib_qsort_float_cb(const void* arg1, const void* arg2);       // `qsort` için float karþýlaþtýrma callback'i
+int	  bclib_qsort_string_cb(const void* arg1, const void* arg2);
 
 #endif // BCLIB_H

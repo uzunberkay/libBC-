@@ -45,8 +45,8 @@ int    bclib_qsort_float_cb(const void* arg1, const void* arg2)
 
 int	  bclib_qsort_string_cb(const void* arg1, const void* arg2)
 {
-	const char* str1 = (const char**)arg1;
-	const char* str2 = (const char**)arg2;
+	const char* str1 = *(const char**)arg1;
+	const char* str2 = *(const char**)arg2;
 	return strcmp(str1, str2);
 }
 

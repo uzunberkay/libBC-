@@ -1,18 +1,10 @@
-﻿  C_Tekrar.c
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(40,19): warning C4267: '=': 'size_t' - 'int' dönüşümü; veri kaybı olabilir
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(70,25): warning C4267: '=': 'size_t' - 'int' dönüşümü; veri kaybı olabilir
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(74,5): warning C4013: 'bclib_buble_sort' tanımsız; int döndüren extern olduğu varsayılıyor
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(85,16): warning C4477: 'printf' : '%d' biçim dizesi 'int' türü bir bağımsız değişken gerektirir, ancak 2 değişen sayıda bağımsız değişkenin türü '__int64'
-      C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(85,16):
-      biçim dizesinde '%lld' kullanmayı düşünün
-      C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(85,16):
-      biçim dizesinde '%Id' kullanmayı düşünün
-      C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(85,16):
-      biçim dizesinde '%I64d' kullanmayı düşünün
-  
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(108,27): warning C4013: 'rand' tanımsız; int döndüren extern olduğu varsayılıyor
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(143,12): warning C4477: 'printf' : '%d' biçim dizesi 'int' türü bir bağımsız değişken gerektirir, ancak 1 değişen sayıda bağımsız değişkenin türü 'size_t'
-      C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(143,12):
-      biçim dizesinde '%zd' kullanmayı düşünün
-  
+﻿  bclib.c
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(9,33): warning C4244: 'işlev': 'time_t' - 'unsigned int' dönüşümü; veri kaybı olabilir
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(96,7): warning C4090: 'başlatılıyor': farklı 'const' niteleyicileri
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(97,7): warning C4090: 'başlatılıyor': farklı 'const' niteleyicileri
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(221,4): warning C4090: 'return': farklı 'const' niteleyicileri
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(271,8): warning C4090: '=': farklı 'const' niteleyicileri
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(266,7): warning C4090: 'başlatılıyor': farklı 'const' niteleyicileri
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(286,8): warning C4090: '=': farklı 'const' niteleyicileri
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(280,7): warning C4090: 'başlatılıyor': farklı 'const' niteleyicileri
   C_Tekrar.vcxproj -> C:\Users\W10\source\repos\C_Tekrar\x64\Debug\C_Tekrar.exe
