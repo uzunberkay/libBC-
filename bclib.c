@@ -4,9 +4,71 @@
 #include<stdlib.h>
 #include<time.h>
 #include<string.h>
-#include<stdio.h>
+#include<stdint.h>
 
 void bclib_random(void) { srand(time(NULL)); }
+
+
+
+/**
+ * @brief Önceden hesaplanmýþ faktöriyel deðerlerini döndürür.
+ *
+ * Bu fonksiyon, faktöriyel hesaplamalarýnýn yüksek maliyetini önlemek için
+ * bir "lookup table" (önceden hesaplanmýþ deðerler tablosu) kullanýr.
+ * Fonksiyon, yalnýzca 0 ile 20 arasýndaki deðerler için faktöriyel hesaplamalarýný destekler,
+ * çünkü uint64_t veri tipi 20! deðerinden büyük olanlarý taþýmadan saklayamaz.
+ * Negatif veya 20'den büyük bir deðer girilirse hata kodu (-1) döndürülür.
+ *
+ * Faktöriyel, n'in tüm pozitif tam sayýlarýn çarpýmý olduðu bir matematiksel iþlemdir:
+ * n! = n * (n-1) * ... * 1.
+ *
+ * @param ival Hesaplanmak istenen faktöriyel deðeri (0 ile 20 arasýnda bir tam sayý).
+ * @return uint64_t
+ *         - Eðer ival 0 ile 20 arasýnda bir deðer ise, önceden hesaplanmýþ faktöriyel döndürülür.
+ *         - Eðer ival 0'dan küçük veya 20'den büyük ise, -1 döndürülür.
+ *
+ * @note Bu fonksiyon, performans optimizasyonu saðlamak için yalnýzca önceden belirlenmiþ
+ *       faktöriyel deðerlerini döndürür ve herhangi bir dinamik hesaplama yapmaz.
+ *       Geçerli olmayan giriþler için ek hata kontrolü yapýlmýþtýr.
+ *
+ * @warning 21 veya daha büyük bir deðerle çaðrýlýrsa, faktöriyel taþma yaþanacaðý için
+ *          sonuç doðru olmayacaktýr. Bu nedenle yalnýzca 0 ile 20 arasý deðerler kullanýlmalýdýr.
+ */
+uint64_t bclib_get_faktoriyel(int ival)
+{
+	static const uint64_t factor[] =
+	{
+		 1,                    // 0!
+		 1,                    // 1!
+		 2,                    // 2!
+		 6,                    // 3!
+		 24,                   // 4!
+		 120,                  // 5!
+		 720,                  // 6!
+		 5040,                 // 7!
+		 40320,                // 8!
+		 362880,               // 9!
+		 3628800,              // 10!
+		 39916800,             // 11!
+		 479001600,            // 12!
+		 6227020800,           // 13!
+		 87178291200,          // 14!
+		 1307674368000,        // 15!
+		 20922789888000,       // 16!
+		 355687428096000,      // 17!
+		 6402373705728000,     // 18!
+		 121645100408832000,   // 19!
+		 2432902008176640000,  // 20!
+	};
+
+	// Geçersiz giriþ kontrolü
+	if (ival < 0 || ival >= asize(factor))
+		return -1;
+
+	
+	return factor[ival];
+}
+
 
 void	bclib_buble_sort(int* array, int size)
 {
@@ -93,8 +155,8 @@ void bclib_sort_array(void* array, size_t size , size_t sz, fptr compare)
 }
 int*	bclib_binary_Search(const int* arr, size_t size, int key)
 {
-	int* first = arr;
-	int* end = arr + size - 1;
+	int* first = (int*)arr;
+	int* end = (int*)arr + size - 1;
 
 	while (end >= first)
 	{
@@ -202,7 +264,7 @@ void* bclib_memset(void* arg, int value, size_t size)
 void* bclib_memcpy(void* arg1, const void* arg2, size_t size)
 {
 	char* vpfirst = (char*)arg1;
-	const char* vpend   = (char*)arg2;
+	const char* vpend = (char*)arg2;
 
 	while (size--)
 	{
@@ -213,12 +275,12 @@ void* bclib_memcpy(void* arg1, const void* arg2, size_t size)
 }
 void* bclib_memchr(const void* arg, int value, size_t size)
 {
-	const char* vp = (char*)arg;
+	const char* vp = arg;
 	while (size--)
 	{
 		if (*vp == (char)value)
 		{
-			return vp;
+			return (char*)vp;
 		}
 		*vp++;
 	}
@@ -263,7 +325,7 @@ void* bclib_generic_search(const void* arg, size_t size, size_t sz,void* key)
 
 int* bclib_get_min(const int* arr, size_t size)
 {
-	int* min = arr;
+	const int* min = arr;
 	for (size_t i = 1; i < size; ++i)
 	{
 		if (*(arr + i) < *min)
@@ -272,12 +334,12 @@ int* bclib_get_min(const int* arr, size_t size)
 		}
 	}
 
-	return min;
+	return (int*)min;
 }
 
 int* bclib_get_max(const int* arr, size_t size)
 {
-	int* max = arr;
+	const int* max = arr;
 
 	for (size_t i = 0; i < size; ++i)
 	{
@@ -288,7 +350,7 @@ int* bclib_get_max(const int* arr, size_t size)
 
 	}
 
-	return max;
+	return (int*)max;
 }
 
 size_t bclib_strlen(const char* arg)
@@ -339,4 +401,10 @@ char* bclib_strrchr(const char* arg, char ch)
 		++arg;
 	}
 	return (char*)last;
+}
+
+void bclib_string_print(const char** str, size_t size)
+{
+	while (size--)
+		puts(*str++);
 }

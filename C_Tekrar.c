@@ -69,6 +69,23 @@ void test_sort_string_array(const char* arr[], size_t size) {
 
 
 
+
+uint64_t faktoriyel(int ival)
+{
+    if (ival == 1 || ival == 0)
+        return 1;
+
+    uint64_t result = 1;
+    for (size_t i = 1; i <= ival; ++i)
+    {
+        result *= i;
+
+    }
+
+    return result;
+}
+
+
 int main()
 {
     bclib_random();
@@ -98,11 +115,14 @@ int main()
     printf("\n");
 
     printf("\nTesting string array sorting:\n");
+
     const char* string_arr[] = { "banana", "apple", "cherry", "blueberry" };
+    bclib_string_print(string_arr, 4);
     test_sort_string_array(string_arr, sizeof(string_arr) / sizeof(string_arr[0]));
 
     //printf("%d" NULL - NULL -1 );
 
+    bclib_string_print(string_arr, 4);
 
 }
 

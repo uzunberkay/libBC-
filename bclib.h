@@ -4,12 +4,16 @@
 #include <stdint.h> // uint32_t, size_t gibi türler için gerekli
 #include <stddef.h> // size_t gibi standart türler için gerekli
 
+extern const int factor[];
+
 // ----- Makrolar -----
 #define SQUARE(x)       ((x) * (x))            // Bir sayýnýn karesini hesaplar
 #define IS_ODD(x)       (((x) & 1) ? 1 : 0)    // Sayýnýn tek olup olmadýðýný kontrol eder
 #define IS_EVEN(x)      (!IS_ODD((x)))         // Sayýnýn çift olup olmadýðýný kontrol eder
 #define POWER_OF_TWO(x) ((x) && !((x) & ((x) -1)) )
 #define asize(x)	(sizeof(x) / sizeof(x[0]))
+#define FAKTORIYEL(x)	factor[x]
+
 // ----- Tür Tanýmlarý -----
 typedef int (*fptr)(const void*, const void*); // Genel karþýlaþtýrma fonksiyonu iþaretçisi
 
@@ -44,5 +48,8 @@ int     bclib_qsort_int_cb(const void* arg1, const void* arg2);         // `qsor
 int     bclib_qsort_double_cb(const void* arg1, const void* arg2);      // `qsort` için double karþýlaþtýrma callback'i
 int     bclib_qsort_float_cb(const void* arg1, const void* arg2);       // `qsort` için float karþýlaþtýrma callback'i
 int	  bclib_qsort_string_cb(const void* arg1, const void* arg2);
+
+uint64_t bclib_get_faktoriyel(int ival);
+void bclib_string_print(const char** str, size_t size);
 
 #endif // BCLIB_H

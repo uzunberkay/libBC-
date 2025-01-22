@@ -1,10 +1,4 @@
-﻿  bclib.c
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(9,33): warning C4244: 'işlev': 'time_t' - 'unsigned int' dönüşümü; veri kaybı olabilir
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(96,7): warning C4090: 'başlatılıyor': farklı 'const' niteleyicileri
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(97,7): warning C4090: 'başlatılıyor': farklı 'const' niteleyicileri
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(221,4): warning C4090: 'return': farklı 'const' niteleyicileri
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(271,8): warning C4090: '=': farklı 'const' niteleyicileri
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(266,7): warning C4090: 'başlatılıyor': farklı 'const' niteleyicileri
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(286,8): warning C4090: '=': farklı 'const' niteleyicileri
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(280,7): warning C4090: 'başlatılıyor': farklı 'const' niteleyicileri
+﻿  C_Tekrar.c
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(95,18): warning C4013: 'rand' tanımsız; int döndüren extern olduğu varsayılıyor
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(103,38): warning C4244: '=': 'double' - 'float' dönüşümü; veri kaybı olabilir
   C_Tekrar.vcxproj -> C:\Users\W10\source\repos\C_Tekrar\x64\Debug\C_Tekrar.exe
