@@ -1,4 +1,8 @@
 ﻿  C_Tekrar.c
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(95,18): warning C4013: 'rand' tanımsız; int döndüren extern olduğu varsayılıyor
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(103,38): warning C4244: '=': 'double' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(97,18): warning C4013: 'rand' tanımsız; int döndüren extern olduğu varsayılıyor
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(105,38): warning C4244: '=': 'double' - 'float' dönüşümü; veri kaybı olabilir
+  bclib.c
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(64,33): warning C4244: 'işlev': 'time_t' - 'unsigned int' dönüşümü; veri kaybı olabilir
+C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\bclib.c(201,14): warning C4098: 'bclib_puts': 'void' işlev değer döndürüyor
+  Kod Üretiliyor...
   C_Tekrar.vcxproj -> C:\Users\W10\source\repos\C_Tekrar\x64\Debug\C_Tekrar.exe

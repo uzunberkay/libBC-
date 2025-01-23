@@ -4,18 +4,33 @@
 #include <stdint.h> // uint32_t, size_t gibi türler için gerekli
 #include <stddef.h> // size_t gibi standart türler için gerekli
 
-extern const int factor[];
+extern const uint64_t factor[];
+extern const char* days[];
+extern const char* months[];
 
+#define FACTOR_SIZE		21
 // ----- Makrolar -----
-#define SQUARE(x)       ((x) * (x))            // Bir sayýnýn karesini hesaplar
-#define IS_ODD(x)       (((x) & 1) ? 1 : 0)    // Sayýnýn tek olup olmadýðýný kontrol eder
-#define IS_EVEN(x)      (!IS_ODD((x)))         // Sayýnýn çift olup olmadýðýný kontrol eder
-#define POWER_OF_TWO(x) ((x) && !((x) & ((x) -1)) )
-#define asize(x)	(sizeof(x) / sizeof(x[0]))
-#define FAKTORIYEL(x)	factor[x]
+#define SQUARE(x)			((x) * (x))            
+#define IS_ODD(x)			(((x) & 1) ? 1 : 0)    
+#define IS_EVEN(x)			(!IS_ODD((x)))         
+#define POWER_OF_TWO(x)		((x) && !((x) & ((x) -1)) )
+#define asize(x)			(sizeof(x) / sizeof(x[0]))
+#define FAKTORIYEL(x)		((x) < 0 || ( (x) >= FACTOR_SIZE ) ? -1 : factor[(x)]
+#define DAY(x)				(x) <= 0 || x > 7 ? days[0] : days[(x)]
+#define ABS(x)				(x) > 0 ? (x) : -(x) 
+#define MONTH(x)			(x) <= 0 || x > 12 ? months[0] : months[(x)]
+#define MAX(a,b)			(a) > (b) ? (a) : (b)
+#define MIN(a,b)			(a) < (b) ? (a) : (b)
+
+#define SET_BIT(x, n)		((x) |= (1U << (n)))    
+#define CLEAR_BIT(x, n)		((x) &= ~(1U << (n)))   
+#define TOGGLE_BIT(x, n)	((x) ^= (1U << (n)))   
+#define CHECK_BIT(x, n)		(!!((x) & (1U << (n)))) 
+
+
 
 // ----- Tür Tanýmlarý -----
-typedef int (*fptr)(const void*, const void*); // Genel karþýlaþtýrma fonksiyonu iþaretçisi
+typedef int (*fptr)(const void*, const void*); 
 
 // ----- Dizi Ýþlemleri -----
 void    bclib_bubble_sort(int* array, int size);                        // Bubble sort algoritmasý
@@ -49,7 +64,12 @@ int     bclib_qsort_double_cb(const void* arg1, const void* arg2);      // `qsor
 int     bclib_qsort_float_cb(const void* arg1, const void* arg2);       // `qsort` için float karþýlaþtýrma callback'i
 int	  bclib_qsort_string_cb(const void* arg1, const void* arg2);
 
-uint64_t bclib_get_faktoriyel(int ival);
+
 void bclib_string_print(const char** str, size_t size);
+int is_empty(const int* arr, size_t size);
+int sumIntArray(const int* array, size_t size);
+
+
+
 
 #endif // BCLIB_H

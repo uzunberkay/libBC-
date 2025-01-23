@@ -6,70 +6,62 @@
 #include<string.h>
 #include<stdint.h>
 
-void bclib_random(void) { srand(time(NULL)); }
 
 
 
-/**
- * @brief Önceden hesaplanmýþ faktöriyel deðerlerini döndürür.
- *
- * Bu fonksiyon, faktöriyel hesaplamalarýnýn yüksek maliyetini önlemek için
- * bir "lookup table" (önceden hesaplanmýþ deðerler tablosu) kullanýr.
- * Fonksiyon, yalnýzca 0 ile 20 arasýndaki deðerler için faktöriyel hesaplamalarýný destekler,
- * çünkü uint64_t veri tipi 20! deðerinden büyük olanlarý taþýmadan saklayamaz.
- * Negatif veya 20'den büyük bir deðer girilirse hata kodu (-1) döndürülür.
- *
- * Faktöriyel, n'in tüm pozitif tam sayýlarýn çarpýmý olduðu bir matematiksel iþlemdir:
- * n! = n * (n-1) * ... * 1.
- *
- * @param ival Hesaplanmak istenen faktöriyel deðeri (0 ile 20 arasýnda bir tam sayý).
- * @return uint64_t
- *         - Eðer ival 0 ile 20 arasýnda bir deðer ise, önceden hesaplanmýþ faktöriyel döndürülür.
- *         - Eðer ival 0'dan küçük veya 20'den büyük ise, -1 döndürülür.
- *
- * @note Bu fonksiyon, performans optimizasyonu saðlamak için yalnýzca önceden belirlenmiþ
- *       faktöriyel deðerlerini döndürür ve herhangi bir dinamik hesaplama yapmaz.
- *       Geçerli olmayan giriþler için ek hata kontrolü yapýlmýþtýr.
- *
- * @warning 21 veya daha büyük bir deðerle çaðrýlýrsa, faktöriyel taþma yaþanacaðý için
- *          sonuç doðru olmayacaktýr. Bu nedenle yalnýzca 0 ile 20 arasý deðerler kullanýlmalýdýr.
- */
-uint64_t bclib_get_faktoriyel(int ival)
+
+const uint64_t factor[] =
 {
-	static const uint64_t factor[] =
-	{
-		 1,                    // 0!
-		 1,                    // 1!
-		 2,                    // 2!
-		 6,                    // 3!
-		 24,                   // 4!
-		 120,                  // 5!
-		 720,                  // 6!
-		 5040,                 // 7!
-		 40320,                // 8!
-		 362880,               // 9!
-		 3628800,              // 10!
-		 39916800,             // 11!
-		 479001600,            // 12!
-		 6227020800,           // 13!
-		 87178291200,          // 14!
-		 1307674368000,        // 15!
-		 20922789888000,       // 16!
-		 355687428096000,      // 17!
-		 6402373705728000,     // 18!
-		 121645100408832000,   // 19!
-		 2432902008176640000,  // 20!
-	};
+	 1,                    // 0!
+	 1,                    // 1!
+	 2,                    // 2!
+	 6,                    // 3!
+	 24,                   // 4!
+	 120,                  // 5!
+	 720,                  // 6!
+	 5040,                 // 7!
+	 40320,                // 8!
+	 362880,               // 9!
+	 3628800,              // 10!
+	 39916800,             // 11!
+	 479001600,            // 12!
+	 6227020800,           // 13!
+	 87178291200,          // 14!
+	 1307674368000,        // 15!
+	 20922789888000,       // 16!
+	 355687428096000,      // 17!
+	 6402373705728000,     // 18!
+	 121645100408832000,   // 19!
+	 2432902008176640000,  // 20!
+};
 
-	// Geçersiz giriþ kontrolü
-	if (ival < 0 || ival >= asize(factor))
-		return -1;
+const char* days[] =
+{	"None",
+	"Pazar" ,
+	"Pazartesi",
+	"Sali",
+	"Carsamba",
+	"Persembe",
+	"Cuma",
+	"Cumartesi",
+};
+const char* months[] = {
+	"None",
+	"Ocak",
+	"Subat",
+	"Mart",
+	"Nisan",
+	"Mayis",
+	"Haziran",
+	"Temmuz",
+	"Agustos",
+	"Eylul",
+	"Ekim",
+	"Kasim",
+	"Aralik"
+};
 
-	
-	return factor[ival];
-}
-
-
+void	bclib_random(void) { srand(time(NULL)); }
 void	bclib_buble_sort(int* array, int size)
 {
 	for (int i = 0; i < size - 1; i++)
@@ -204,23 +196,15 @@ void	bclib_print_array(const int* arr, size_t size)
 }
 
 
-
 void	bclib_puts(const char* str)
 {
+	if (!str) { return NULL; }
 	while (*str)
 		putchar(*str++);
 
 	putchar('\n');
 }
 
-
-//char* bclib_strcpy(char* pdest, const char* psource)
-//{
-//	char* ptest = pdest;
-//	while (*pdest++ = psource++);
-//
-//	return ptest;
-//}
 
 void*    bclib_generic_swap(void* arg1, void* arg2, size_t size)
 {
@@ -309,6 +293,7 @@ int bclib_memcmp(const void* arg1, const void* arg2, size_t size)
 
 void* bclib_generic_search(const void* arg, size_t size, size_t sz,void* key)
 {
+	if (!arg) { return NULL; }
 	const char* vp = (const char*)arg;
 
 	while (size--)
@@ -318,9 +303,7 @@ void* bclib_generic_search(const void* arg, size_t size, size_t sz,void* key)
 		vp += sz;
 	
 	}
-
 	return NULL;
-
 }
 
 int* bclib_get_min(const int* arr, size_t size)
@@ -384,6 +367,7 @@ char* bclib_strcat(char* pdest, const char* psource)
 }
 int bclib_strcmp(const char* arg1, const char* arg2)
 {
+
 	while (*arg1 && (*arg1 == *arg2))
 	{
 		++arg1, ++arg2;
@@ -407,4 +391,20 @@ void bclib_string_print(const char** str, size_t size)
 {
 	while (size--)
 		puts(*str++);
+}
+
+int is_empty(const int* arr, size_t size)
+{
+	while (size--)
+		if (*arr++)
+			return 0;
+
+	return 1;
+}
+
+int sumIntArray(const int* array, size_t size)
+{
+	int result = 0; 
+	while (size--) result += *array++;
+	return result;
 }

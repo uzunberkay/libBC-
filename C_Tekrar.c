@@ -86,13 +86,15 @@ uint64_t faktoriyel(int ival)
 }
 
 
+
+
 int main()
 {
     bclib_random();
     int arr[SIZE];
     for (size_t i = 0; i < SIZE; i++)
     {
-        arr[i] = rand();
+        arr[i] = rand() % 10;
     }
     test_sort_int_array(arr, SIZE);
     printf("\n");
@@ -117,13 +119,19 @@ int main()
     printf("\nTesting string array sorting:\n");
 
     const char* string_arr[] = { "banana", "apple", "cherry", "blueberry" };
-    bclib_string_print(string_arr, 4);
     test_sort_string_array(string_arr, sizeof(string_arr) / sizeof(string_arr[0]));
 
     //printf("%d" NULL - NULL -1 );
 
     bclib_string_print(string_arr, 4);
 
+    printf("Toplam : %d  ", sumIntArray(arr, SIZE));
+
+
+   
+   
+ 
+ 
 }
 
 
