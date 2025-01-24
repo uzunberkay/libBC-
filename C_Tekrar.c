@@ -1,5 +1,6 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
+#define LOG     
 #include"bclib.h"
 #include<string.h>
 #include<time.h>
@@ -52,6 +53,7 @@ void test_sort_double_array(double* arr, size_t size) {
     printf("\n");
 }
 void test_sort_string_array(const char* arr[], size_t size) {
+    START_TIMER();
     printf("Before sorting string array: ");
     for (size_t i = 0; i < size; i++) {
         printf("%s ", arr[i]);
@@ -64,7 +66,9 @@ void test_sort_string_array(const char* arr[], size_t size) {
     for (size_t i = 0; i < size; i++) {
         printf("%s ", arr[i]);
     }
+
     printf("\n");
+    END_TIMER();
 }
 
 
@@ -72,6 +76,8 @@ void test_sort_string_array(const char* arr[], size_t size) {
 
 uint64_t faktoriyel(int ival)
 {
+    START_TIMER();
+
     if (ival == 1 || ival == 0)
         return 1;
 
@@ -81,7 +87,7 @@ uint64_t faktoriyel(int ival)
         result *= i;
 
     }
-
+    END_TIMER();
     return result;
 }
 
@@ -90,6 +96,7 @@ uint64_t faktoriyel(int ival)
 
 int main()
 {
+    START_TIMER();
     bclib_random();
     int arr[SIZE];
     for (size_t i = 0; i < SIZE; i++)
@@ -128,8 +135,24 @@ int main()
     printf("Toplam : %d  ", sumIntArray(arr, SIZE));
 
 
+
+    uint8_t arr2[SIZE];
+    ZERO_ARRAY(arr2);
+
+    for (size_t i = 0; i < SIZE; i++) {
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+
+    FILL_ARRAY(arr2, 0xFF);
+    for (size_t i = 0; i < SIZE; i++) {
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+    LOG_ERROR("mee");
    
-   
+    uint8_t x = 129;
+    printf("%d \n",  x <<= 1);
  
  
 }

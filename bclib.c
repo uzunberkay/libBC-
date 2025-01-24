@@ -142,7 +142,7 @@ void bclib_sort_array(void* array, size_t size , size_t sz, fptr compare)
 	/*
 	* Buraya belki switch case ile yapabilirim ???
 	*/
-	qsort(array, size, sz, compare);
+	return qsort(array, size, sz, compare);
 
 }
 int*	bclib_binary_Search(const int* arr, size_t size, int key)
