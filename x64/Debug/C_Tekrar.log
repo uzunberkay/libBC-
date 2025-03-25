@@ -1,4 +1,0 @@
-﻿  C_Tekrar.c
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(181,21): warning C4311: 'tür dönüştürme': işaretçi kesilmesi: 'uint32_t *' - 'uint32_t'
-C:\Users\W10\source\repos\C_Tekrar\C_Tekrar\C_Tekrar.c(184,7): warning C4312: 'tür dönüştürme': 'uint32_t' öğesinden daha büyük boyutlu 'uint32_t *' öğesine dönüştürme
-  C_Tekrar.vcxproj -> C:\Users\W10\source\repos\C_Tekrar\x64\Debug\C_Tekrar.exe
