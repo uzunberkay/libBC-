@@ -53,9 +53,3 @@
 - **Hata Kaydı (Logging):**
   - `LOG_ERROR`: LOG makrosu aktif olduğunda hata mesajlarını dosya ve satır bilgisi ile loglar.
 
-## Kurulum
-
-1. **Kaynak Kodun İndirilmesi:**
-   ```bash
-   git clone https://github.com/uzunberkay/libBC.git
-   cd libBC
