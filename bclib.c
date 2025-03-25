@@ -139,9 +139,7 @@ int	  bclib_qsort_string_cb(const void* arg1, const void* arg2)
  */
 void bclib_sort_array(void* array, size_t size , size_t sz, fptr compare)
 {
-	/*
-	* Buraya belki switch case ile yapabilirim ???
-	*/
+
 	return qsort(array, size, sz, compare);
 
 }
